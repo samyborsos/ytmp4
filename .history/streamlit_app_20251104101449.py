@@ -3,7 +3,7 @@ from yt_dlp import YoutubeDL
 import tempfile
 import os
 
-st.title("YouTube Downloader")
+st.title("YouTube Downloader with Quality Selection")
 
 # YouTube URL input
 url = st.text_input("YouTube video link:")
