@@ -16,7 +16,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown('<div class="centered">', unsafe_allow_html=True)
-st.title("YouTube Downloader")
+st.title("YouTube Downloader)
 
 # Input URL
 url = st.text_input("Paste YouTube video link:")
