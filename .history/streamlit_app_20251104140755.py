@@ -53,7 +53,7 @@ st.title("YouTube & Video Downloader")
 # ----- Input URL -----
 url = st.text_input(
     "Paste YouTube or video link:",
-    placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    placeholder="https://www.youtube.com/watch?v=example"
 )
 
 
