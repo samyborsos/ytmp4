@@ -6,7 +6,6 @@ import time
 
 # ----- Custom CSS -----
 st.markdown("""
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
     .centered {
         display: flex;
@@ -18,29 +17,12 @@ st.markdown("""
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 25px;
+        gap: 20px;
         margin-top: 20px;
-        font-size: 50px;
-        color: #555;
     }
-    .supported-sites i {
-        transition: transform 0.2s, color 0.2s;
-        cursor: pointer;
-    }
-    .supported-sites i:hover {
-        transform: scale(1.2);
-        color: #1DB954;
-    }
-    .footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        font-size: 12px;
-        color: #888;
-        padding: 5px 0;
-        background-color: rgba(255, 255, 255, 0.8);
+    .supported-sites img {
+        width: 50px;
+        height: 50px;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -57,14 +39,14 @@ url = st.text_input("Paste YouTube or video link:")
 st.subheader("Supported Platforms")
 st.markdown("""
 <div class="supported-sites">
-    <i class="fab fa-youtube" title="YouTube"></i>
-    <i class="fab fa-tiktok" title="TikTok"></i>
-    <i class="fab fa-instagram" title="Instagram"></i>
-    <i class="fab fa-facebook" title="Facebook"></i>
-    <i class="fab fa-twitter" title="Twitter"></i>
-    <i class="fab fa-reddit" title="Reddit"></i>
-    <i class="fab fa-twitch" title="Twitch"></i>
-    <i class="fab fa-soundcloud" title="SoundCloud"></i>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" title="YouTube">
+    <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/TikTok_logo.png" alt="TikTok" title="TikTok">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" title="Instagram">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" title="Facebook">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg" alt="Twitter" title="Twitter">
+    <img src="https://upload.wikimedia.org/wikipedia/en/8/82/Reddit_logo_and_wordmark.svg" alt="Reddit" title="Reddit">
+    <img src="https://upload.wikimedia.org/wikipedia/en/5/5e/Twitch_logo.svg" alt="Twitch" title="Twitch">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/SoundCloud_logo.svg" alt="SoundCloud" title="SoundCloud">
 </div>
 """, unsafe_allow_html=True)
 st.caption("yt-dlp supports hundreds of sites. Support may vary depending on site changes, region restrictions, or DRM.")
@@ -98,6 +80,7 @@ if url.strip():
             progress_bar = st.progress(0)
             status_text = st.empty()
 
+            # Mutable state for smoothing ETA
             progress_state = {
                 "last_update": 0,
                 "speed_history": []
@@ -171,11 +154,3 @@ if url.strip():
         st.error(f"An error occurred:\n{str(e)}")
 
 st.markdown('</div>', unsafe_allow_html=True)
-
-# ----- Footer -----
-st.markdown("""
-<div class="footer">
-    This downloader uses <strong>yt-dlp</strong> for video extraction. 
-    All site logos and icons are property of their respective owners.
-</div>
-""", unsafe_allow_html=True)
