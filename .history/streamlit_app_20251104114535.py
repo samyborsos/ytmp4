@@ -75,7 +75,7 @@ if url.strip():
                         avg_speed = sum(progress_state["speed_history"]) / len(progress_state["speed_history"]) if progress_state["speed_history"] else 0
                         eta = (total_bytes - downloaded_bytes) / avg_speed if avg_speed else 0
 
-                        status_text.text(f"Downloading... {percent*100:.1f}% | Time Left: {int(eta)}s")
+                        status_text.text(f"Downloading... {percent*100:.1f}% | Time left: {int(eta)}s")
 
                     progress_state["last_update"] = now
 
