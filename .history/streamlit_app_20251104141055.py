@@ -177,13 +177,15 @@ def increment_counter():
         f.truncate()
     return count
 
-# Increment the counter **once per session**, but keep it hidden
+# Call once per session
 if "counted" not in st.session_state:
     st.session_state.counted = True
     total_uses = increment_counter()
 else:
     with open(COUNTER_FILE, "r") as f:
         total_uses = int(f.read().strip() or 0)
+
+st.sidebar.info(f"👥 Total app uses: **{total_uses}**")
 
 
 

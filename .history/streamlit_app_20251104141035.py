@@ -162,9 +162,6 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 
 
-
-COUNTER_FILE = "counter.txt"
-
 def increment_counter():
     if not os.path.exists(COUNTER_FILE):
         with open(COUNTER_FILE, "w") as f:
@@ -177,13 +174,15 @@ def increment_counter():
         f.truncate()
     return count
 
-# Increment the counter **once per session**, but keep it hidden
+# Call once per session
 if "counted" not in st.session_state:
     st.session_state.counted = True
     total_uses = increment_counter()
 else:
     with open(COUNTER_FILE, "r") as f:
         total_uses = int(f.read().strip() or 0)
+
+st.sidebar.info(f"👥 Total app uses: **{total_uses}**")
 
 
 
