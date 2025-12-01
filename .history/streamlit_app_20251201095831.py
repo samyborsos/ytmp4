@@ -177,6 +177,6 @@ else:
 st.markdown("""
 <div class="footer">
     This downloader uses <strong>yt-dlp</strong> for video extraction. 
-    All site logos and icons are property of their respective owners!
+    All site logos and icons are property of their respective owners.
 </div>
 """, unsafe_allow_html=True)
